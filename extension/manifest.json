@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "AI 对话批量导出器",
+  "version": "1.4.0",
+  "description": "一键批量导出豆包 / DeepSeek 的全部会话为 Markdown，仅保存在本地。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["downloads", "storage", "tabs", "scripting"],
+  "host_permissions": [
+    "https://www.doubao.com/*",
+    "https://chat.deepseek.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { width: 360px; margin: 0; padding: 14px; font: 13px/1.5 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif; color: #1f2328; }
+  h1 { font-size: 15px; margin: 0 0 12px; }
+  .row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+  select, button { font: inherit; }
+  select { flex: 1; padding: 6px; border: 1px solid #d0d7de; border-radius: 6px; }
+  input[type="date"] { flex: 1; padding: 5px 6px; border: 1px solid #d0d7de; border-radius: 6px; font: inherit; color: #57606a; }
+  .dash { color: #6e7781; }
+  label.chk { display: flex; gap: 6px; align-items: center; margin-bottom: 10px; color: #57606a; }
+  button { padding: 7px 14px; border: 0; border-radius: 6px; cursor: pointer; }
+  #export { background: #2563eb; color: #fff; flex: 1; }
+  #export:disabled { background: #93c5fd; cursor: default; }
+  #cancel { background: #f1f2f4; color: #57606a; }
+  #log { height: 180px; overflow-y: auto; background: #f6f8fa; border: 1px solid #d8dee4; border-radius: 6px; padding: 8px; font: 12px/1.5 Consolas, monospace; white-space: pre-wrap; word-break: break-all; }
+  .tip { margin-top: 8px; color: #6e7781; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>AI 对话批量导出器</h1>
+  <div class="row">
+    <select id="platform">
+      <option value="deepseek">DeepSeek（chat.deepseek.com）</option>
+      <option value="doubao">豆包（www.doubao.com）</option>
+    </select>
+  </div>
+  <div class="row">
+    <input type="date" id="dateStart" title="开始日期（含当天），留空不限">
+    <span class="dash">至</span>
+    <input type="date" id="dateEnd" title="结束日期（含当天），留空不限">
+  </div>
+  <div class="row">
+    <button id="export">开始导出全部会话</button>
+    <button id="cancel">取消</button>
+  </div>
+  <div id="log">准备就绪。导出前请先在浏览器中登录对应站点。</div>
+  <div class="tip">每个会话一个 Markdown，打包为一个 ZIP，保存到：下载目录/AI-exports/&lt;平台&gt;/。请求在目标站点后台标签页内同源发起，数据只保存在本地。</div>
+  <script src="popup.js"></script>
+</body>
+</html>
